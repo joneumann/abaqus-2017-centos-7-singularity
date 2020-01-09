@@ -1,3 +1,5 @@
+# Attention: This is work in progress and not updated, yet!
+
 # Singularity container for Abaqus 2019
 
 Abaqus 2019, and reportedly 2018, do not run properly under Ubuntu 18.04 LTS. You can start CAE, set up and run a job, but there is a problem with the flexnet license manager, as the license is not returned and thus I had to restart my machine before i could run a second job. Further reads on the issue can be found at:
