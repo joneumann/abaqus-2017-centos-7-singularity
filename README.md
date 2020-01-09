@@ -1,11 +1,14 @@
-# Singularity container for Abaqus 2017
+# Singularity container for Abaqus 2019
 
-Abaqus works well under Centos but is much less likely to work well under a bleeding edge distro like Arch, so let's run Abaqus within a Singularity container,
-setting things up in such a way that we can run Abaqus CAE with hardware-accelerated (NVIDIA) graphics.
+Abaqus 2019, and reportedly 2018, do not run properly under Ubuntu 18.04 LTS. You can start CAE, set up and run a job, but there is a problem with the flexnet license manager, as the license is not returned and thus I had to restart my machine before i could run a second job. Further reads on the issue can be found at:
+https://askubuntu.com/questions/1062058/process-hangs-before-termination-with-ubuntu-18-04
+https://github.com/imirzov/Install-Abaqus-2019-on-Ubuntu-18.04-LTS
+
+Following a tutorial by Will Furnass https://learningpatterns.me/posts-output/2018-01-30-abaqus-singularity/, I managed to update his workflow to work for the combination of ABQ2019, singularity 3.5, and Ubuntu 18.04. LTS using a centos 7 container, as he did.
 
 ## Preparations
 
-1. Make sure you have Singularity 2.4.2 installed.
+1. Make sure you have Singularity 3.5 installed.
 2. Symlink the `.iso` installer for Abaqus 2017 into a clone of this repository.
 3. Ensure that the license server(s) listed in `assets/cae-UserIntentions_CODE.xml` (see `licenseServer1`/`licenseServer2`/`licenseServer3` in that file) are accessible 
    i.e. if they are only reachable after bringing up a VPN connection, then bring that up now.
